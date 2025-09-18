@@ -1,0 +1,28 @@
+{
+  "name": "lab3",
+  "version": "0.1.0",
+  "description": "lab 3",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests will be added in Step 2\"",
+    "lint": "echo \"Linting will be configured in Step 3\"",
+    "format": "echo \"Formatting will be configured in Step 3\"",
+    "docs": "echo \"Documentation generation will be configured in Step 3\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y3s1n/lab3-oop-javascript.git"
+  },
+  "author": "Yesin Qasem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/y3s1n/lab3-oop-javascript/issues"
+  },
+  "homepage": "https://github.com/y3s1n/lab3-oop-javascript#readme",
+  "devDependencies": {
+    "eslint": "^9.35.0",
+    "jsdoc": "^4.0.4",
+    "prettier": "^3.6.2"
+  }
+}
