@@ -1,9 +1,9 @@
-import { Die } from '/Die.js';
+import { Die } from './Die.js';
 
 /**
  * Represents a collection of dice that can be rolled together
  */
-export class DieSet {
+export class DiceSet {
     #dice;
 
     /**
@@ -14,7 +14,7 @@ export class DieSet {
      */
     constructor(count = 1, sides = 6) {
         if (count < 1) {
-            throw new Error ('DieSet must contain at least 1 die');
+            throw new Error ('DiceSet must contain at least 1 die');
         }
 
         this.#dice = []; 
@@ -66,6 +66,14 @@ export class DieSet {
      */
     getSides() {
         return this.#dice[0].getSides();
+    }
+
+    /**
+     * Checks if all dice have been rolled
+     * @return {boolean} True if all dice have been rolled
+     */
+    hasBeenRolled() {
+        return this.#dice.every(die => die.hasBeenRolled());
     }
 
     /**
