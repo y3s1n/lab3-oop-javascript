@@ -5,11 +5,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Tests will be added in Step 2\"",
-    "lint": "echo \"Linting will be configured in Step 3\"",
-    "format": "echo \"Formatting will be configured in Step 3\"",
-    "docs": "echo \"Documentation generation will be configured in Step 3\""
-  },
+  "test": "node --test test/**/*.test.js",
+  "test:watch": "node --test --watch test/**/*.test.js",
+  "lint": "echo \"Linting will be configured in Step 3\"",
+  "format": "echo \"Formatting will be configured in Step 3\"",
+  "docs": "echo \"Documentation generation will be configured in Step 3\""
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/y3s1n/lab3-oop-javascript.git"
