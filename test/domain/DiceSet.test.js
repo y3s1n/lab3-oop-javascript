@@ -71,7 +71,7 @@ describe('DiceSet', () => {
             assert.strictEqual(set.getTotal(), expectedTotal);
         });
 
-        it('should calculate correct total for various roll', () => {
+        it('should calculate correct total for various rolls', () => {
             const set = new DiceSet(2, 6);
 
             //test multiple times to ensure consistency
@@ -83,4 +83,59 @@ describe('DiceSet', () => {
         });
     });
 
+    describe('hasBeenRolled', () => {
+        it('should return false before rolling', () => {
+            const set = new DiceSet(3);
+            assert.strictEqual(set.hasBeenRolled(), false);
+        });
+
+        it('should return true after rolling all dice', () => {
+            const set = new DiceSet(3);
+            set.rollAll();
+            assert.strictEqual(set.hasBeenRolled(), true);
+        });
+    });
+
+    describe('reset', () => {
+        it('should reset all dice to unrolled state', () => {
+            const set = new DiceSet(3);
+            set.rollAll();
+            assert.strictEqual(set.hasBeenRolled(), true);
+            assert(set.getTotal() !== null);
+
+            set.reset();
+            assert.strictEqual(set.hasBeenRolled(), false);
+            assert.strictEqual(set.getTotal(), null);
+            assert.deepStrictEqual(set.getValues(), [null, null, null]);
+        });
+    });
+
+    describe('getMinTotal and getMaxTotal', () => {
+        it('should return correct min and max for d6', () => {
+            const set = new DiceSet(3, 6);
+            assert.strictEqual(set.getMinTotal(), 3); // 3 dice x 1
+            assert.strictEqual(set.getMaxTotal(), 18); // 3 dice x 20
+        });
+
+        it('should return correct min and max for d20', () => {
+            const set = new DiceSet(2, 20);
+            assert.strictEqual(set.getMinTotal(), 2); // 2 dice x 1
+            assert.strictEqual(set.getMaxTotal(), 40); // 2 dice x 20
+        });
+    });
+
+    describe('rolled values range', () => {
+        it('should always roll within min and max bounds', () => {
+            const set = new DiceSet(3, 8);
+            const min = set.getMinTotal();
+            const max = set.getMaxTotal();
+
+            for (let i=0; i<50; i++) {
+                set.rollAll();
+                const total = set.getTotal();
+                assert(total >= min, 'Total ${total} should be >= ${min}');
+                assert(total <= max, 'Total ${total} should be <= ${max}');
+            }
+        });
+    });
 });
