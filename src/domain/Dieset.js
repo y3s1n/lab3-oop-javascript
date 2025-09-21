@@ -28,7 +28,8 @@ export class DieSet {
      * @returns {number[]} Array of rolled values
      */
     rollAll() {
-        return 'stubbed';
+        const results = this.#dice.map(die => die.roll());
+        return results;
     }
 
     /**
@@ -36,7 +37,7 @@ export class DieSet {
      * @returns {Array<number|null>} Array of current values
      */ 
     getValues() {
-        return 'stubbed';
+        return this.#dice.map(die => die.getValue());
     }
 
     /**
@@ -44,7 +45,11 @@ export class DieSet {
      * @returns {number|null} Total or null if any die hasnt been rolled
      */
     getTotal() {
-        return 'stubbed';
+        const values = this.getValues();
+        if (values.some(v => v === null)) {
+            return null;
+        }
+        return values.reduce((sum, value) => sum + value, 0);
     }
 
     /**
@@ -52,7 +57,7 @@ export class DieSet {
      * @returns {number} Number of dice
      */
     getCount() {
-        return 'stubbed';
+        return this.#dice.length;
     }
 
     /**
@@ -60,14 +65,14 @@ export class DieSet {
      * @returns {number} Number of sides
      */
     getSides() {
-        return 'stubbed';
+        return this.#dice[0].getSides();
     }
 
     /**
      * Resets all dice to unrolled state
      */
     reset() {
-        return 'stubbed';
+        this.#dice.forEach(die => die.reset());
     }
 
     /**
@@ -75,7 +80,7 @@ export class DieSet {
      * @returns {number} Minimum possible total
      */
     getMinTotal() {
-        return 'stubbed';
+        return this.#dice.length;
     }
 
     /**
@@ -83,7 +88,7 @@ export class DieSet {
      * @returns {number} Maximum possible total
      */
     getMaxTotal() {
-        return 'stubbed';
+        return this.#dice.length * this.getSides();
     }
 
 
