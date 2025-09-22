@@ -1,0 +1,26 @@
+{
+    "source": {
+        "include": ["src/", "README.md"],
+        "includePattern": ".+\\.js$",
+        "excludePattern": "(node_modules|docs)"
+    },
+    "opts": {
+        "destination": "./docs/generated",
+        "recurse": true,
+        "template": "templates/default"
+    },
+    "plugins": ["plugins/markdown"],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "default": {
+            "outputSourceFiles": true,
+            "includeDate": true,
+            "useLongnameInNav": false 
+        }
+    },
+    "metadata": {
+        "title": "Lab 3: Dice Simulation Documentation",
+        "decription": "API documentation for the dice simulation system"
+    }
+}
