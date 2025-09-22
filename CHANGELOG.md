@@ -17,19 +17,31 @@ and this project adheres to [Semantic Versioning]
 - Project configuration (package.json)
 - MIT License
 - Changelog following Keep a Changelog format
-[Unreleased]: https://github.com/yourusername/lab3-js-oop-dice-docs-and-
-design/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/yourusername/lab3-js-oop-dice-docs-and-
-design/releases/tag/v0.1.0
+[Unreleased]: https://github.com/y3s1n/lab3-oop-javascript/v0.1.0...HEAD
+[0.1.0]: https://github.com/y3s1n/lab3-oop-javascript/releases/tag/v0.1.0
 
 ## [0.2.0] - 2025-09-21
-
 ### Added
 - Die class with configurable sides and private fields
--DiceSet class demonstrating composition pattern
--DiceNotation parser for standard dice notation (e.g., "3d6+2")
--Comprehensive unit tests (48 tests total)
--Test scripts in package.json
+- DiceSet class demonstrating composition pattern
+- DiceNotation parser for standard dice notation (e.g., "3d6+2")
+- Comprehensive unit tests (48 tests total)
+- Test scripts in package.json
 
 [Unreleased]: https://github.com/y3s1n/lab3-oop-javascript/v0.2.0...HEAD
 [0.2.0]: https://github.com/y3s1n/lab3-oop-javascript/releases/tag/v0.2.0
+
+## [0.3.0] - 2025-09-21
+### Added
+- ESLint configuration for code quality
+- Prettier configuration for code formatting
+- JSDoc configuration for documentation generation
+- Quality check scripts in package.json
+- Automated quality checking script
+### Developer Experience
+- npm run lint - Check code quality
+- npm run format - Auto-format code
+- npm run docs - Generate documentation
+- npm run quality - Run all checks
+[Unreleased]: https://github.com/y3s1n/lab3-oop-javascript/v0.3.0...HEAD
+[0.3.0]: https://github.com/y3s1n/lab3-oop-javascript/releases/tag/v0.3.0
