@@ -45,3 +45,16 @@ and this project adheres to [Semantic Versioning]
 - npm run quality - Run all checks
 [Unreleased]: https://github.com/y3s1n/lab3-oop-javascript/v0.3.0...HEAD
 [0.3.0]: https://github.com/y3s1n/lab3-oop-javascript/releases/tag/v0.3.0
+
+## [0.4.0] - 2025-09-21
+### Added
+- Command Line Interface (CLI) for dice rolling
+- TextRenderer for human-readable output
+- JsonRenderer for machine-readable output
+- DiceRoller with dependency injection
+- Multiple roll statistics
+- Comprehensive CLI help and examples
+### Architecture
+- Application layer with DiceRoller
+- Strategy pattern for rendering
+- Dependency injection for flexibility
