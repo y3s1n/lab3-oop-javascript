@@ -7,10 +7,13 @@
   "scripts": {
   "test": "node --test test/**/*.test.js",
   "test:watch": "node --test --watch test/**/*.test.js",
-  "lint": "echo \"Linting will be configured in Step 3\"",
-  "format": "echo \"Formatting will be configured in Step 3\"",
-  "docs": "echo \"Documentation generation will be configured in Step 3\""
-},
+  "lint": "eslint src/**/*.js test/**/*.js",
+  "lint:fix": "eslint src/**/*.js test/**/*.js --fix",
+  "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
+  "format:check": "prettier --check \"src/**/*.js\" \"test/**/*.js\"",
+  "docs": "jsdoc -c jsdoc.json",
+  "docs:serve": "npx http-server ./docs/generated -p 8080"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/y3s1n/lab3-oop-javascript.git"
