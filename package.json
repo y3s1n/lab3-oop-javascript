@@ -12,7 +12,8 @@
   "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
   "format:check": "prettier --check \"src/**/*.js\" \"test/**/*.js\"",
   "docs": "jsdoc -c jsdoc.json",
-  "docs:serve": "npx http-server ./docs/generated -p 8080"
+  "docs:serve": "npx http-server ./docs/generated -p 8080",
+  "quality": "node check-quality.js"
   },
   "repository": {
     "type": "git",
