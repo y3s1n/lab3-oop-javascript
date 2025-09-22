@@ -85,5 +85,78 @@ export class DiceNotation {
         return components;
     }
 
+    /**
+     * Execute a roll based on prased components
+     * @private
+     */
+    static #executeRoll(components) {
+        const results = {
+            dice: [],
+            modifiers: [],
+            total: 0,
+            details: []
+        };
+
+        for (const component of components) {
+            if(component.type === 'dice') {
+                const diceSet = new DiceSet(component.count, component.sides);
+                const rolls = diceSet .rollAll();
+                const subtotal = rolls.reduce((sum, val) => sum + val, 0) * component.sign;
+
+                results.dice.push({
+                    notation: `${component.count}d${component.sides}`,
+                    rolls,
+                    subtotal: Math.abs(subtotal),
+                    sign: component.sign
+                });
+
+                results.total += subtotal;
+                results.details.push({
+                    type: 'dice',
+                    notation: `${component.sign === -1 ? '-' : ''}${component.count}d${component.sides}`,
+                    rolls,
+                    subtotal
+                });
+            } else if (component.type === 'modifier') {
+                results.modifiers.push(component.value);
+                results.total += (component.value);
+                results.details.push({
+                    type: 'modifier',
+                    value: component.value
+                });
+            }
+        }
+
+        return results;
+    }
+
+    /**
+     * Calculates maximum possible result
+     * @private
+     */
+    static #calculateMax(components) {
+        let max =0;
+
+        for(const component of components) {
+            if(component.type === 'dice') {
+                max += component.count * component.sides * component.sign;
+            } else if (component.type === 'modifier') {
+                max += component.value;
+            }
+        }
+
+        return max;
+    }
+
+    /**
+     * Quick helper to roll dice notation and return just the total
+     * @param {string} notation - Dice notaiton string
+     * @returns {number} Total rolled value
+     */
+
+    static roll(notation) {
+        const parsed = this.parse(notation);
+        return parsed.roll().total;
+    }
 
 }
