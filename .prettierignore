@@ -1,0 +1,14 @@
+# Ignore dependencies
+node_modules/
+
+# Ignore docs folder
+docs/
+
+# Ignore all Markdown files
+*.md
+
+# ignore lock file
+package-lock.json
+
+# ignore git config file
+.gitignore
