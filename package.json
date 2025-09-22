@@ -1,9 +1,12 @@
 {
   "name": "lab3",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "lab 3",
   "type": "module",
   "main": "index.js",
+  "bin": {
+    "dice": "./src/cli/dice-cli.js"
+  },
   "scripts": {
   "test": "node --test test/**/*.test.js",
   "test:watch": "node --test --watch test/**/*.test.js",
@@ -13,7 +16,8 @@
   "format:check": "prettier --check \"src/**/*.js\" \"test/**/*.js\"",
   "docs": "jsdoc -c jsdoc.json",
   "docs:serve": "npx http-server ./docs/generated -p 8080",
-  "quality": "node check-quality.js"
+  "quality": "node check-quality.js",
+  "cli": "node src/cli/dice-cli.js"
   },
   "repository": {
     "type": "git",
