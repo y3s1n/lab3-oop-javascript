@@ -27,7 +27,6 @@ and this project adheres to [Semantic Versioning]
 - DiceNotation parser for standard dice notation (e.g., "3d6+2")
 - Comprehensive unit tests (48 tests total)
 - Test scripts in package.json
-
 [Unreleased]: https://github.com/y3s1n/lab3-oop-javascript/v0.2.0...HEAD
 [0.2.0]: https://github.com/y3s1n/lab3-oop-javascript/releases/tag/v0.2.0
 
